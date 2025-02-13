@@ -9,7 +9,7 @@ from flask_cors import cross_origin
 app = Flask(__name__)
 CORS(app, resources={r"/describe-images": {"origins": "http://localhost:3000"}}) 
 
-genai.configure(api_key="AIzaSyC9azUKgsYHlNCLsfMSQM_8a4yVgieltZM")
+genai.configure(api_key=process.env.gemeni_key)
 model = genai.GenerativeModel("gemini-2.0-flash")  
 
 @app.route('/describe-images', methods=['POST'])
@@ -106,7 +106,7 @@ if __name__ == '__main__':
 # from PIL import Image
 # import google.generativeai as genai
 
-# genai.configure(api_key="AIzaSyC9azUKgsYHlNCLsfMSQM_8a4yVgieltZM")
+# genai.configure(api_key=process.env.gemeni_key)
 # # genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
 
 # model = genai.GenerativeModel("gemini-2.0-flash") 
@@ -128,7 +128,7 @@ if __name__ == '__main__':
 # from PIL import Image
 # import google.generativeai as genai
 
-# genai.configure(api_key="AIzaSyC9azUKgsYHlNCLsfMSQM_8a4yVgieltZM")  
+# genai.configure(api_key=process.env.gemeni_key)  
 
 # model = genai.GenerativeModel("gemini-2.0-flash")
 
